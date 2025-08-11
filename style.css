@@ -464,18 +464,193 @@ h2 {
 
 
 /* Адаптивность для мобильных */
+/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    /* Заголовки */
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    /* Основной контейнер */
     .content-wrapper {
         flex-direction: column;
         align-items: center;
+        gap: 25px;
     }
     
-    .text-block {
+    /* Текстовые блоки */
+    .text-block, 
+    .text-block2,
+    .text-block3 {
         width: 100%;
-        margin-bottom: 30px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-width: 20px !important; /* Уменьшаем размер рамки */
+    }
+    
+    .text-block2 {
+        padding: 30px 15px;
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 30px 0;
+    }
+    
+    /* Блок с изображением */
+    .image-block {
+        width: 100%;
+        max-width: 350px;
+        margin-bottom: 25px;
+    }
+    
+    .image-block figure {
+        font-size: 14px;
+    }
+    
+    /* Разделительная линия */
+    .divider-line {
+        margin: 40px 5%;
+    }
+    
+    .divider-line::before,
+    .divider-line::after {
+        font-size: 16px;
+    }
+    
+    .divider-line::before {
+        left: 5%;
+    }
+    
+    .divider-line::after {
+        right: 5%;
+    }
+    
+    /* Аудиоплеер */
+    .music-player {
+        padding: 15px;
+        margin: 30px auto;
+        width: 95%;
+    }
+    
+    .track {
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .track-title {
+        font-size: 16px;
+    }
+    
+    .track-controls {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .play-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .progress-container {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .time {
+        font-size: 12px;
+        min-width: 80px;
+    }
+    
+    .volume-control {
+        margin-left: auto;
+    }
+    
+    .volume-slider {
+        width: 60px;
+    }
+    
+    /* Кнопка Telegram */
+    .telegram-btn {
+        padding: 12px 25px 12px 20px;
+        font-size: 16px;
+    }
+    
+    .telegram-icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+    
+    .telegram-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Стикеры на фоне */
+    .sticker-container div {
+        font-size: 25px;
+    }
+    
+    /* Скрываем некоторые стикеры на маленьких экранах */
+    .sticker-container div:nth-child(n+8) {
+        display: none;
+    }
+}
+
+/* Для очень маленьких экранов (менее 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 22px;
+    }
+    
+    .text-block2 {
+        padding: 20px 10px;
+        font-size: 16px;
+        line-height: 1.5;
     }
     
     .image-block {
-        width: 80%;
+        max-width: 280px;
+    }
+    
+    .track-title {
+        font-size: 15px;
+    }
+    
+    .telegram-btn {
+        padding: 10px 20px 10px 15px;
+        font-size: 14px;
+    }
+    
+    .telegram-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    /* Упрощаем управление плеером */
+    .volume-control {
+        display: none; /* Скрываем регулятор громкости */
+    }
+    
+    .volume-btn {
+        display: block; /* Оставляем только кнопку звука */
+    }
+    
+    /* Уменьшаем количество стикеров */
+    .sticker-container div:nth-child(n+5) {
+        display: none;
     }
 }
