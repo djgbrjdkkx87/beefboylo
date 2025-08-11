@@ -1,0 +1,481 @@
+body {
+    background: linear-gradient(to right, #2c2b2b, #131313); 
+    padding: 50px;
+}
+
+h1 {
+    color: bisque;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    color: bisque;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Основной контейнер */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Текстовый блок */
+.text-block {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 50px solid rgba(0, 0, 0, 0);
+    color: bisque;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Блок с изображением */
+.image-block {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(210, 105, 30, 0.4); /* свечение под цвет bisque */
+}
+
+.image-block figure {
+    color: bisque;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 15px;
+    font-style: italic;
+}
+/* Текстовый блок 2 */
+.text-block2 {
+   width: 100vw;
+   color: rgb(233, 175, 16);
+   box-shadow: 
+        0 6px 20px rgba(111, 102, 67, 0.4),
+        inset 0 0 0 1px rgba(255, 251, 0, 0.2);
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%); 
+    padding: 60px 20px; 
+    text-align: center;
+    background-color: rgb(142, 124, 126);
+    font-size: 22px;
+    line-height: 1.8;
+    font-style: 'Segoe UI', Tahoma, Verdana, sans-serif ;
+    shadow: 0 0 30px rgb(77, 61, 61) inset;
+    border-top: 3px solid rgb(142, 124, 126);
+    border-bottom: 3px solid rgb(142, 124, 126);
+    margin: 50px 0;
+    box-sizing: border-box;}
+    /* Текстовый блок 3*/
+.text-block3 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 50px solid rgba(0, 0, 0, 0);
+    color: bisque;
+    font-family: Arial, sans-serif;
+    padding: 5px;
+     }
+     .sticker-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+.sticker-container::before,
+.sticker-container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.05;
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    animation: moveBackground 120s infinite linear;
+}
+
+/* Первый слой стикеров */
+.sticker-container::before {
+    background-image: 
+        radial-gradient(circle, currentColor 10%, transparent 11%),
+        radial-gradient(circle, currentColor 10%, transparent 11%);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
+    animation-duration: 150s;
+    color: rgba(210, 105, 30, 0.3); /* Цвет bisque */
+}
+
+/* Второй слой стикеров */
+.sticker-container::after {
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,15 C65,15 77,27 77,42 C77,57 65,69 50,69 C35,69 23,57 23,42 C23,27 35,15 50,15 Z' fill='none' stroke='%23d2691e' stroke-width='5'/%3E%3Cpath d='M50,30 L50,60 M40,35 L60,35 M40,55 L60,55' stroke='%23d2691e' stroke-width='3'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30,50 C30,65 42,77 57,77 C72,77 84,65 84,50 C84,35 72,23 57,23 C42,23 30,35 30,50 Z' fill='none' stroke='%23d2691e' stroke-width='5'/%3E%3Cpath d='M45,40 L65,40 M45,60 L65,60 M55,45 L55,65' stroke='%23d2691e' stroke-width='3'/%3E%3C/svg%3E");
+    background-size: 120px 120px;
+    background-position: 0 0, 60px 60px;
+    animation-direction: reverse;
+    opacity: 0.07;
+}
+
+/* Анимация движения фона */
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0, 40px 40px;
+    }
+    100% {
+        background-position: 1000px 1000px, 1040px 1040px;
+    }
+}
+
+/* Добавляем отдельные стикеры с помощью дополнительных элементов */
+.sticker-container div {
+    position: absolute;
+    font-size: 40px;
+    opacity: 0.05;
+    animation: float 20s infinite linear;
+}
+
+/* Создаем 20 стикеров с фиксированными позициями */
+.sticker-container div:nth-child(1) { top: 10%; left: 5%; content: "🎵"; animation-duration: 25s; }
+.sticker-container div:nth-child(2) { top: 20%; left: 80%; content: "🎶"; animation-duration: 30s; }
+.sticker-container div:nth-child(3) { top: 40%; left: 15%; content: "🎤"; animation-duration: 40s; }
+.sticker-container div:nth-child(4) { top: 60%; left: 70%; content: "🎧"; font-size: 50px; }
+.sticker-container div:nth-child(5) { top: 30%; left: 50%; content: "🎷"; animation-duration: 35s; }
+.sticker-container div:nth-child(6) { top: 70%; left: 30%; content: "🎸"; animation-duration: 45s; }
+.sticker-container div:nth-child(7) { top: 15%; left: 40%; content: "🎹"; font-size: 60px; }
+.sticker-container div:nth-child(8) { top: 55%; left: 10%; content: "🎺"; }
+.sticker-container div:nth-child(9) { top: 45%; left: 85%; content: "🎻"; animation-duration: 50s; }
+.sticker-container div:nth-child(10) { top: 75%; left: 60%; content: "🥁"; font-size: 45px; }
+.sticker-container div:nth-child(11) { top: 25%; left: 20%; content: "📻"; }
+.sticker-container div:nth-child(12) { top: 35%; left: 75%; content: "🎼"; animation-duration: 55s; }
+.sticker-container div:nth-child(13) { top: 65%; left: 45%; content: "♪"; font-size: 70px; }
+.sticker-container div:nth-child(14) { top: 5%; left: 65%; content: "♫"; animation-duration: 60s; }
+.sticker-container div:nth-child(15) { top: 85%; left: 25%; content: "🎵"; }
+
+/* Анимация плавающих стикеров */
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(20px, 15px) rotate(90deg);
+    }
+    50% {
+        transform: translate(40px, 30px) rotate(180deg);
+    }
+    75% {
+        transform: translate(10px, 45px) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+.divider-line {
+    height: 1px;
+    background: linear-gradient(90deg, 
+                transparent, 
+                bisque 20%, 
+                bisque 80%, 
+                transparent);
+    margin: 60px 10%;
+    position: relative;
+}
+
+.divider-line::before,
+.divider-line::after {
+    content: "🎵";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: rgb(255, 185, 100);
+}
+
+.divider-line::before {
+    left: 15%;
+}
+
+.divider-line::after {
+    right: 15%;
+}
+h2 { 
+    color:bisque;
+    font-style: 'Segoe UI', Tahoma, Verdana, sans-serif ;
+
+}
+/* Стили для всего плеера */
+.music-player {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(210, 105, 30, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.track {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(30, 30, 30, 0.7);
+    transition: all 0.3s ease;
+}
+
+.track:hover {
+    background: rgba(50, 50, 50, 0.7);
+    transform: translateY(-3px);
+}
+
+.track-title {
+    font-size: 20px;
+    color: #ffd8a8;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.track-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Стили кнопки воспроизведения */
+.play-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(210, 105, 30, 0.7);
+    border: 2px solid bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    background: rgba(210, 105, 30, 1);
+    transform: scale(1.05);
+}
+
+.play-icon, .pause-icon {
+    font-size: 20px;
+    color: white;
+}
+
+.pause-icon {
+    display: none;
+}
+
+.play-btn.playing .play-icon {
+    display: none;
+}
+
+.play-btn.playing .pause-icon {
+    display: block;
+}
+
+/* Стили прогресс-бара */
+.progress-container {
+    flex-grow: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: bisque;
+    border-radius: 3px;
+    transition: width 0.1s linear;
+}
+
+/* Время трека */
+.time {
+    min-width: 100px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Управление громкостью */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.volume-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: bisque;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.volume-slider {
+    width: 80px;
+    height: 5px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: bisque;
+    cursor: pointer;
+}
+.telegram-container {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+    padding: 0 20px;
+}
+
+.telegram-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0088cc, #27a7e7);
+    color: white;
+    text-decoration: none;
+    padding: 16px 40px 16px 30px;
+    border-radius: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    overflow: hidden;
+    box-shadow: 
+        0 6px 20px rgba(0, 136, 204, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+}
+
+.telegram-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 12px 30px rgba(0, 136, 204, 0.6),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    padding: 16px 45px 16px 35px;
+}
+
+.telegram-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.telegram-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.telegram-btn:hover .telegram-icon {
+    transform: scale(1.1) rotate(10deg);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.telegram-text {
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.telegram-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #27a7e7, #0088cc);
+    opacity: 0;
+    border-radius: 50px;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.telegram-btn:hover .telegram-hover {
+    opacity: 1;
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.7; }
+    70% { transform: scale(1.05); opacity: 0.4; }
+    100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+.telegram-btn::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba(0, 136, 204, 0.3);
+    border-radius: 60px;
+    animation: pulse 2s infinite;
+    z-index: -2;
+}
+
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .text-block {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .image-block {
+        width: 80%;
+    }
+}
